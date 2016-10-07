@@ -1,1 +1,2 @@
 export(corset)
+import(stats)

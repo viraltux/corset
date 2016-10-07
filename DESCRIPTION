@@ -6,7 +6,7 @@ Date: 2016-09-05
 Author: Fran Urbano
 Maintainer: Fran Urbano <fran.urbano@merck.com>
 Depends: R (>= 2.10)
-Imports:
+Imports: stats
 Suggests: forecast, hts, testthat
 Description: Set of methods to transform numerical series and time series within
              arbitrary boundaries.
