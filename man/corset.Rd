@@ -11,7 +11,7 @@ The \code{corset} package intends to be a companion to series and time series an
 
 The \code{corset} function allows to introduce boundary constraints in series, time series as well as in \code{forecast} & \code{gts/hts} objects.
 
-In particular, when applied on a \code{forecast} object it does not only apply the boundaries to the forecast but it aslo to the confidence intervals.
+In particular, when applied on a \code{forecast} object it does not only apply the boundaries to the forecast object but aslo to its confidence intervals.
 }
 \usage{
 
