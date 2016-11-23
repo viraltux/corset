@@ -1,0 +1,6 @@
+{
+  "name": "Corset",
+  "tagline": "Arbitrary bounding of series and time series objects",
+  "body": "# corset\r\nArbitrary bounding of series and time series objects\r\n\r\n## Description\r\n\r\nWhen working with times series we often have boundary constraints that cannot be easily introduced in mathematical models like ARIMA or ETS, or simply cannot be introduced in already existing R packages returning series and time series objects.\r\n\r\nThe *corset* package intends to be a companion to series and time series analysis to easily enhance and tune already existing results in a seamless way. A typical use case would be to force declining financial time series forecasts to converge to zero instead having negative values.\r\n\r\nThe *corset* function allows to introduce boundary constraints in series, time series as well as in *forecast* & *gts/hts* objects.\r\n\r\nIn particular, when applied on a *forecast* object it does not only apply the boundaries to the forecast but aslo to the confidence intervals.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

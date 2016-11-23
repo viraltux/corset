@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Corset by viraltux</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Corset</h1>
+        <p>Arbitrary bounding of series and time series objects</p>
+
+        <p class="view"><a href="https://github.com/viraltux/corset">View the Project on GitHub <small>viraltux/corset</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/viraltux/corset/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/viraltux/corset/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/viraltux/corset">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="corset" class="anchor" href="#corset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>corset</h1>
+
+<p>Arbitrary bounding of series and time series objects</p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+
+<p>When working with times series we often have boundary constraints that cannot be easily introduced in mathematical models like ARIMA or ETS, or simply cannot be introduced in already existing R packages returning series and time series objects.</p>
+
+<p>The <em>corset</em> package intends to be a companion to series and time series analysis to easily enhance and tune already existing results in a seamless way. A typical use case would be to force declining financial time series forecasts to converge to zero instead having negative values.</p>
+
+<p>The <em>corset</em> function allows to introduce boundary constraints in series, time series as well as in <em>forecast</em> &amp; <em>gts/hts</em> objects.</p>
+
+<p>In particular, when applied on a <em>forecast</em> object it does not only apply the boundaries to the forecast but aslo to the confidence intervals.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/viraltux">viraltux</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
