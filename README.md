@@ -9,4 +9,6 @@ The *corset* package intends to be a companion to series and time series analysi
 
 The *corset* function allows to introduce boundary constraints in series, time series as well as in *forecast* & *gts/hts* objects.
 
-In particular, when applied on a *forecast* object it does not only apply the boundaries to the forecast but aslo to the confidence intervals.
+In particular, when applied on a *forecast* object it does not only apply the boundaries to the forecast but also to the confidence intervals.
+
+![](/images/corseted.png)
