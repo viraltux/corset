@@ -76,13 +76,14 @@ corset <- function(x, method = c('bezier', 'exp', 'naive'),
   ## Internal functions
   corset.forecast <- function(corset.function){
     ## Applies a corset methodology to a forecast class object
-
     tspx <- tsp(x$mean)
     x$mean <- corset.function(x$mean, min, max, proximity)
     x$mean <- ts(x$mean)
     tsp(x$mean) <- tspx
+
     # Keeping proportions in first CI level
     r <- (x$upper[,2] - x$mean)/(x$upper[,1] - x$mean)
+    r[is.nan(r)] <- 1
     x$upper[,2] <-  corset.function(x$upper[,2], min, max, proximity)
     x$lower[,2] <-  corset.function(x$lower[,2], min, max, proximity)
 
