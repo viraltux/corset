@@ -16,7 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 corset <- function(x, method = c('bezier', 'exp', 'naive'),
-                      min = 0, max = Inf, proximity = 0){
+                      min = 0, max = Inf, proximity = 0,
+                      centrality = FALSE){
 
   # Top function to handle the different methods to corset time series
   # decay/growth approach
@@ -29,6 +30,8 @@ corset <- function(x, method = c('bezier', 'exp', 'naive'),
   #   if a value it will converted into a vector
   #   proximity: proximity for the partial bezier and
   #   exponential method, it has no effect on the naive method.
+  #   centrality: when TRUE it forces the mean forecast to be placed
+  #   in (upper[,1] + lower[,1]) / 2
   #
   # Returns:
   #   A the same object of class x corset with the chosen methodology
@@ -78,18 +81,25 @@ corset <- function(x, method = c('bezier', 'exp', 'naive'),
     r <- (x$upper[,2] - x$mean)/(x$upper[,1] - x$mean)
     r[is.nan(r)] <- 1
 
+    to.ts <- function(x,tspx){
+      x <- ts(x)
+      tsp(x) <- tspx
+      return(x)
+    }
+
     ## Applies a corset methodology to a forecast class object
     tspx <- tsp(x$mean)
-    x$mean <- corset.function(x$mean, min, max, proximity)
-    x$mean <- ts(x$mean)
-    tsp(x$mean) <- tspx
+    x$mean <- to.ts(corset.function(x$mean, min, max, proximity),tspx)
 
     # Keeping proportions in first CI level
-    x$upper[,2] <-  corset.function(x$upper[,2], min, max, proximity)
-    x$lower[,2] <-  corset.function(x$lower[,2], min, max, proximity)
+    x$upper[,2] <-  to.ts(corset.function(x$upper[,2], min, max, proximity),tspx)
+    x$lower[,2] <-  to.ts(corset.function(x$lower[,2], min, max, proximity),tspx)
 
     x$upper[,1] <- (x$upper[,2] - x$mean) / r + x$mean
     x$lower[,1] <- (x$lower[,2] - x$mean) / r + x$mean
+    if (centrality) {
+      x$mean <- to.ts((x$upper[,1] + x$lower[,1] ) / 2,tspx)
+    }
 
     return(x)
   }

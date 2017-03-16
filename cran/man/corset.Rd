@@ -16,7 +16,7 @@ In particular, when applied on a \code{forecast} object it does not only apply t
 \usage{
 
 corset(x, method = c('bezier', 'exp', 'naive'),
-       min = 0, max = Inf, proximity = 0)
+       min = 0, max = Inf, proximity = 0, centrality = FALSE)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -43,7 +43,9 @@ corset(x, method = c('bezier', 'exp', 'naive'),
     This parameter works for the Partial Bezier, it has no effect on the Exponential & Naive method.
     See the details section for more information.
   }
-
+  \item{centrality}{
+    when TRUE it forces the mean of a forecast object into the middle values of the smallest prediction interval.
+  }
 }
 \details{
   The three methods available are:
@@ -62,7 +64,8 @@ corset(x, method = c('bezier', 'exp', 'naive'),
 }
 
 \author{
-  Fran Urbano <fran.urbano@merck.com>}
+  Fran Urbano <fran.urbano@merck.com>
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
@@ -105,5 +108,18 @@ lines(corset(x, method = 'bezier',
              min = min, max = max, proximity = 2),
       lwd = 3, col = 'blue')
 
+## Centrality Example ##
+########################
+
+set.seed(4)
+#plot(corset(forecast(forecast::Arima(ts(35:15 + rnorm(30-14,0,1)), c(1,1,1)),100)))
+layout(matrix(c(1,2,3),ncol=1))
+f <- forecast::forecast(forecast::Arima(ts(33:14 + rnorm(30-10,0,1)), c(1,1,1)),50)
+plot(f, main = 'forecast object | f'); abline(h=0, lwd = 2)
+c <- corset(f, centrality = FALSE)
+plot(c, main = '"Corseted" forecast object | corset(f)')
+c <- corset(f, centrality = TRUE)
+plot(c, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
+layout(1)
 
 }
