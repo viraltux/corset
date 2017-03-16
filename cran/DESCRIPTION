@@ -4,7 +4,7 @@ Title: Arbitrary bounding of series and time series objects
 Version: 0.1-0
 Date: 2016-09-05
 Author: Fran Urbano
-Maintainer: Fran Urbano <fran.urbano@merck.com>
+Maintainer: Fran Urbano <viraltux@gmail.com>
 Depends: R (>= 2.10)
 Imports: stats
 Suggests: forecast, hts, testthat
