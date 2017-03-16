@@ -12,4 +12,4 @@ The *corset* function allows to introduce boundary constraints in series, time s
 In particular, when applied on a *forecast* object it does not only apply the boundaries to the forecast but aslo to the confidence intervals.
 
 
-![](/images/corseted.png)
+![](/corset/images/corseted.png)
