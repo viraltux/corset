@@ -108,18 +108,16 @@ lines(corset(x, method = 'bezier',
              min = min, max = max, proximity = 2),
       lwd = 3, col = 'blue')
 
-## Centrality Example ##
-########################
+## Centrality Example for forecast object ##
+############################################
 
-set.seed(4)
-#plot(corset(forecast::forecast(forecast::Arima(ts(35:15 + rnorm(30-14,0,1)), c(1,1,1)),100)))
-layout(matrix(c(1,2,3),ncol=1))
-f <- forecast::forecast(forecast::Arima(ts(33:14 + rnorm(30-10,0,1)), c(1,1,1)),50)
-plot(f, main = 'forecast object | f'); abline(h=0, lwd = 2)
-c <- corset(f, centrality = FALSE)
-plot(c, main = '"Corseted" forecast object | corset(f)')
-c <- corset(f, centrality = TRUE)
-plot(c, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
-layout(1)
+ layout(matrix(c(1,2,3),ncol=1))
+ f <- forecast::forecast(forecast::Arima(ts(33:14 + rnorm(20)), c(1,1,1)),50)
+ plot(f, main = 'forecast object | f'); abline(h=0, lwd = 2)
+ c <- corset(f, centrality = FALSE)
+ plot(c, main = '"Corseted" forecast object | corset(f)')
+ c <- corset(f, centrality = TRUE)
+ plot(c, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
+ layout(1)
 
 }
