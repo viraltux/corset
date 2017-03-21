@@ -112,7 +112,7 @@ lines(corset(x, method = 'bezier',
 ########################
 
 set.seed(4)
-#plot(corset(forecast(forecast::Arima(ts(35:15 + rnorm(30-14,0,1)), c(1,1,1)),100)))
+#plot(corset(forecast::forecast(forecast::Arima(ts(35:15 + rnorm(30-14,0,1)), c(1,1,1)),100)))
 layout(matrix(c(1,2,3),ncol=1))
 f <- forecast::forecast(forecast::Arima(ts(33:14 + rnorm(30-10,0,1)), c(1,1,1)),50)
 plot(f, main = 'forecast object | f'); abline(h=0, lwd = 2)
