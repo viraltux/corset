@@ -112,12 +112,12 @@ lines(corset(x, method = 'bezier',
 ############################################
 
  layout(matrix(c(1,2,3),ncol=1))
- f <- forecast::forecast(forecast::Arima(ts(33:14 + rnorm(20)), c(1,1,1)),50)
+ f <- forecast::forecast(forecast::ets(ts(33:14 + rep(c(-8,8),10), frequency = 2), 'AAN'),50)
  plot(f, main = 'forecast object | f'); abline(h=0, lwd = 2)
  c <- corset(f, centrality = FALSE)
  plot(c, main = '"Corseted" forecast object | corset(f)')
- c <- corset(f, centrality = TRUE)
- plot(c, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
+ cc <- corset(f, centrality = TRUE)
+ plot(cc, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
  layout(1)
 
 }
