@@ -45,8 +45,9 @@ test_that("Corset - class ts", {
 })
 
 test_that("Corset - class forecast ", {
+  skip_on_cran()
   set.seed(3)
-  x <- forecast::forecast(ts(rnorm(100)))
+  x <- forecast::forecast(ts(rnorm(100)),)
   cx <- corset(x, 'naive')
 
   expect_equal(x$mean, cx$mean)

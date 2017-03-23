@@ -116,6 +116,7 @@ test_that("Corset - class ts", {
 })
 
 test_that("Corset - class forecast ", {
+  skip_on_cran()
   set.seed(0)
   rx <- rnorm(100, 0.5)
   x <- forecast::forecast(rx)

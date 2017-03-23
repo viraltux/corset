@@ -15,7 +15,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Sys.setenv("R_TESTS" = "")
 library(testthat)
-library(corset)
-
 test_check("corset")
