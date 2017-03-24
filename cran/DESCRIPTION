@@ -11,5 +11,4 @@ Suggests: forecast, hts, testthat
 Description: Set of methods to constrain numerical series and time series within
              arbitrary boundaries.
 License: GPL-3
-Copyright: Copyright© 2016 Merck Sharp & Dohme Corp. a subsidiary of Merck & Co.
-           , Inc., Kenilworth, NJ, USA.
+Copyright: 2016 Merck Sharp & Dohme Corp. a subsidiary of Merck & Co., Inc., Kenilworth, NJ, USA.
