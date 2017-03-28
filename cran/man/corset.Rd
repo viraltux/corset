@@ -2,7 +2,7 @@
 \alias{corset}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-  Boundary constraints to series and time series objects
+  Arbitrary Bounding of Series and Time Series Objects
 }
 \description{
 When working with times series we often have boundary constraints that cannot be easily introduced in mathematical models like ARIMA or ETS, or simply cannot be introduced in already existing R packages returning series and time series objects.
@@ -110,6 +110,7 @@ lines(corset(x, method = 'bezier',
 
 ## Centrality Example for forecast object ##
 ############################################
+
 if ('forecast' \%in\% installed.packages()){
   layout(matrix(c(1,2,3),ncol=1))
   f <- forecast::forecast(forecast::ets(ts(33:14 + rep(c(-8,8),10), frequency = 2), 'AAN'),50)
@@ -119,4 +120,6 @@ if ('forecast' \%in\% installed.packages()){
   cc <- corset(f, centrality = TRUE)
   plot(cc, main = '"Corseted" forecast object | corset(f, centrality = TRUE)')
   layout(1)
+}
+
 }
