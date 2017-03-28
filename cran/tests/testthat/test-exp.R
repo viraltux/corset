@@ -117,6 +117,7 @@ test_that("Corset - class ts", {
 
 test_that("Corset - class forecast ", {
   skip_on_cran()
+  if ('forecast' %in% installed.packages()) {
   set.seed(0)
   rx <- rnorm(100, 0.5)
   x <- forecast::forecast(rx)
@@ -125,9 +126,11 @@ test_that("Corset - class forecast ", {
   expect_equal(x$upper, cx$upper)
   expect_equal(as.numeric(cx$lower[1, 1]), 0.180826494051395)
   expect_equal(as.numeric(cx$lower[1, 2]), 0)
+  }
 })
 
 test_that("Corset - class gts/hts ", {
+  if ('hts' %in% installed.packages()) {
   set.seed(6)
   htseg <-
     hts::hts(ts(replicate(5, rnorm(10) + 15:6)), nodes = list(1, 5))
@@ -285,7 +288,7 @@ test_that("Corset - class gts/hts ", {
                "fmethod", "nodes"),
     class = c("gts", "hts", "corset")
   ))
-
+}
 })
 
 test_that("Corset - class mts / ts / matrix ", {
