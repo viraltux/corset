@@ -122,11 +122,8 @@ test_that("Corset - class forecast ", {
   cx <- corset(x, 'bezier')
   expect_equal(x$mean, cx$mean)
   expect_equal(x$upper, cx$upper)
-  expect_equal(cx$lower[1, 1],
-               structure(0.180826494051395, .Names = "Series 1"))
-  expect_equal(cx$lower[1, 2],
-               structure(0, .Names = "Series 2"))
-
+  expect_equal(as.numeric(cx$lower[1, 1]), 0.180826494051395)
+  expect_equal(as.numeric(cx$lower[1, 2]), 0)
 })
 
 test_that("Corset - class gts/hts ", {
