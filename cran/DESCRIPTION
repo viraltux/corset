@@ -1,8 +1,8 @@
 Package: corset
 Type: Package
 Title: Arbitrary Bounding of Series and Time Series Objects
-Version: 0.1-1
-Date: 2017-03-23
+Version: 0.1-2
+Date: 2017-03-28
 Author: Fran Urbano
 Maintainer: Fran Urbano <viraltux@gmail.com>
 Depends: R (>= 2.10)
