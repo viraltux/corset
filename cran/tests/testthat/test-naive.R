@@ -62,8 +62,9 @@ test_that("Corset - class gts/hts ", {
   skip_on_cran()
   if ('hts' %in% installed.packages()) {
   set.seed(7)
-  htseg <-
-    hts::hts(ts(replicate(5, rnorm(10) + 15:6)), nodes = list(1, 5))
+  rh <- ts(replicate(5, rnorm(10) + 15:6))
+  htseg <- hts::hts(rh, nodes = list(1, 5))  
+
   x <-
     hts::forecast.gts(htseg,
                       h = 10,
