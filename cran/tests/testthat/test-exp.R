@@ -287,7 +287,7 @@ test_that("Corset - class gts/hts ", {
     ),
     .Names = c("bts", "histy", "labels", "method",
                "fmethod", "nodes"),
-    class = c("gts", "hts", "corset")
+    class = c("hts", "gts", "corset")
   ))
 }
 })
